@@ -1,12 +1,12 @@
-compile:
-	cairo-compile program_input_and_hints/sum_by_key.cairo --output=program_input_and_hints/sum_by_key_compiled.json
+all: run
 
-run:
-	cairo-run --program=program_input_and_hints/sum_by_key_compiled.json --print_output --layout=small --program_input=program_input_and_hints/sum_by_key_input.json
+compile:
+	cairo-compile $(TARGET).cairo --output=$(TARGET)_compiled.json
+
+run: compile
+	cairo-run --program=$(TARGET)_compiled.json --print_output --layout=small --program_input=$(TARGET)_input.json
 
 trace:
-	cairo-run --program=program_input_and_hints/sum_by_key_compiled.json --print_output --layout=small --program_input=program_input_and_hints/sum_by_key_input.json --tracer
+	cairo-run --program=$(TARGET)_compiled.json --print_output --layout=small --program_input=$(TARGET)_input.json --tracer
 
-all: compile run
-
-.phony: all compile run
+.phony: all compile run trace
