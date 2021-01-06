@@ -1,11 +1,11 @@
 # cairo_exercise
 
 ```shell
-make run TARGET="xxx"
+make run TAR="xxx"
 ```
 
 For example:
 
 ```shell
-make run TARGET="program_input_and_hints/sum_by_key"
+make run TAR="program_input_and_hints/sum_by_key"
 ```
